@@ -1,0 +1,6 @@
+[submodule "bundles/nerdtree"]
+	path = bundles/nerdtree
+	url = git@github.com:Pentium133/nerdtree.git
+[submodule "bundles/vim-symfony"]
+	path = bundles/vim-symfony
+	url = http://github.com/soh335/vim-symfony.git
