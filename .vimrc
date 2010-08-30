@@ -230,3 +230,11 @@ set completeopt-=preview
 set completeopt+=longest
 set mps-=[:]
 
+set t_Co=256
+set term=xterm-256color
+set lines=60
+set columns=170
+
+colorscheme wombat256
+set guifont=Liberation\ Mono\ 9
+
