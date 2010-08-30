@@ -4,3 +4,6 @@
 [submodule "bundles/vim-symfony"]
 	path = bundles/vim-symfony
 	url = http://github.com/soh335/vim-symfony.git
+[submodule "bundles/php-ident"]
+	path = bundles/php-ident
+	url = http://github.com/2072/PHP-Indenting-for-VIm.git
