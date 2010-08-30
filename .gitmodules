@@ -10,3 +10,6 @@
 [submodule "bundles/taglist"]
 	path = bundles/taglist
 	url = http://github.com/clones/vim-taglist.git
+[submodule "bundles/bufexplorer"]
+	path = bundles/bufexplorer
+	url = http://github.com/edsono/vim-bufexplorer.git
