@@ -160,15 +160,13 @@ map <F10> :bd<cr>
 vmap <F10> <esc>:bd<cr>
 imap <F10> <esc>:bd<cr>
 
-" F11 - показать окно Taglist
-map <F11> :TlistToggle<cr>
-vmap <F11> <esc>:TlistToggle<cr>
-imap <F11> <esc>:TlistToggle<cr>
+" F12 - показать окно Taglist
+map <F12> :TlistToggle<cr>
+vmap <F12> <esc>:TlistToggle<cr>
+imap <F12> <esc>:TlistToggle<cr>
 
-" F12 - обозреватель файлов
-map <F12> :Ex<cr>
-vmap <F12> <esc>:Ex<cr>i
-imap <F12> <esc>:Ex<cr>i
+" автозакрытие тегов
+imap <C-_> </<C-X><C-O> 
 
 " < & > - делаем отступы для блоков
 vmap < <gv
