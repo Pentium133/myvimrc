@@ -168,6 +168,10 @@ imap <F12> <esc>:TlistToggle<cr>
 " автозакрытие тегов
 imap <C-_> </<C-X><C-O> 
 
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-P> :call PhpDocSingle()<CR>
+vnoremap <C-P> :call PhpDocRange()<CR> 
+
 " < & > - делаем отступы для блоков
 vmap < <gv
 vmap > >gv
