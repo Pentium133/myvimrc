@@ -78,9 +78,9 @@ let g:pdv_cfg_CommentSingle = "//"
 let g:pdv_cfg_Type = "mixed"
 let g:pdv_cfg_Package = ""
 let g:pdv_cfg_Version = "$id$"
-let g:pdv_cfg_Author = "Tobias Schlitt <toby@php.net>"
-let g:pdv_cfg_Copyright = "1997-2005 The PHP Group"
-let g:pdv_cfg_License = "PHP Version 3.0 {@link http://www.php.net/license/3_0.txt}"
+let g:pdv_cfg_Author = "Serg Puhoff <serg@puhoff.com>"
+let g:pdv_cfg_Copyright = "1978-2010"
+let g:pdv_cfg_License = ""
 
 let g:pdv_cfg_ReturnVal = "void"
 
@@ -100,7 +100,7 @@ let g:pdv_cfg_php4guess = 1
 
 " If you selected 1 for the last value, this scope identifier will be used for
 " the identifiers having an _ in the first place.
-let g:pdv_cfg_php4guessval = "protected"
+let g:pdv_cfg_php4guessval = "public"
 
 "
 " Regular expressions 
@@ -123,7 +123,7 @@ let g:pdv_re_func = '^\s*\([a-zA-Z ]*\)function\s\+\([^ (]\+\)\s*(\s*\(.*\)\s*)\
 let g:pdv_re_param = ' *\([^ &]*\) *&\?\$\([A-Za-z_][A-Za-z0-9_]*\) *=\? *\(.*\)\?$'
 
 " [:space:]*(private|protected|public\)[:space:]*$[:identifier:]+\([:space:]*=[:space:]*[:value:]+\)*;
-let g:pdv_re_attribute = '^\s*\(\(private\|public\|protected\|var\|static\)\+\)\s*\$\([^ ;=]\+\)[ =]*\(.*\);\?$'
+let g:pdv_re_attribute = '^\s*\([private\|public\|protected\|var\|static]\+\)\s*\(static\|\s*\)*\$\([^ ;=]\+\)[ =]*\(.*\);\?$'
 
 " [:spacce:]*(abstract|final|)[:space:]*(class|interface)+[:space:]+\(extends ([:identifier:])\)?[:space:]*\(implements ([:identifier:][, ]*)+\)?
 let g:pdv_re_class = '^\s*\([a-zA-Z]*\)\s*\(interface\|class\)\s*\([^ ]\+\)\s*\(extends\)\?\s*\([a-zA-Z0-9]*\)\?\s*\(implements*\)\? *\([a-zA-Z0-9_ ,]*\)\?.*$'
@@ -337,11 +337,12 @@ func! PhpDocVar()
     let l:indent = matchstr(l:name, g:pdv_re_indent)
 
 	let l:modifier = substitute (l:name, g:pdv_re_attribute, '\1', "g")
+	let l:static  = substitute (l:name, g:pdv_re_attribute, '\2', "g")
 	let l:varname = substitute (l:name, g:pdv_re_attribute, '\3', "g")
 	let l:default = substitute (l:name, g:pdv_re_attribute, '\4', "g")
     let l:scope = PhpDocScope(l:modifier, l:varname)
 
-    let l:static = g:pdv_cfg_php4always == 1 ? matchstr(l:modifier, g:pdv_re_static) : ""
+    let l:static = match(l:modifier, "static") == 0 ? "static" : l:static
 
     let l:type = PhpDocType(l:default)
     
