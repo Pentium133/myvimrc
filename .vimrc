@@ -242,3 +242,5 @@ set columns=170
 colorscheme wombat256
 set guifont=Liberation\ Mono\ 9
 
+set dir=~/.vim/swp 
+
